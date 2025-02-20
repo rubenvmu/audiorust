@@ -16,7 +16,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Build
-      run: cargo build --verbose
+
+    - name: Build the project
+      run: |
+        cd audiorust  # Navegar al directorio donde está Cargo.toml
+        cargo build --verbose
+
     - name: Run tests
-      run: cargo test --verbose
+      run: |
+        cd audiorust  # Navegar al directorio donde está Cargo.toml
+        cargo test --verbose
